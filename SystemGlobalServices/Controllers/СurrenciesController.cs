@@ -16,7 +16,6 @@ namespace SystemGlobalServices.Controllers
         [Route("currencies")]
         public IActionResult Index(int? page = 1)
         {
-            
             IndexViewModel.FilterData((int)page);
             return View(IndexViewModel);
         }
