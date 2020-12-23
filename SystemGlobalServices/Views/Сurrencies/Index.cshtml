@@ -1,0 +1,64 @@
+﻿@using SystemGlobalServices.Models
+@model IndexViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Курс валют</title>
+</head>
+<body>
+    <h4>Информация о валютах</h4>
+
+    <form asp-action="Index" asp-controller="Currencies" method="post">
+        <table cellpadding="0" cellspacing="0" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NumCode</th>
+                    <th>CharCode</th>
+                    <th>Nominal</th>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Previous</th>
+                </tr>
+            </thead>
+            @foreach (var currency in Model.FilteredData)
+            {
+                <tr>
+                    <td>@currency.ID</td>
+                    <td>@currency.NumCode</td>
+                    <td>@currency.CharCode</td>
+                    <td>@currency.Nominal</td>
+                    <td>@currency.Name</td>
+                    <td>@currency.Value</td>
+                    <td>@currency.Previous</td>
+
+                </tr>
+            }
+        </table>
+        <br />
+    </form>
+    @if (Model.PageModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageModel.PageNumber - 1)"
+           class="btn btn-outline-dark">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Назад
+        </a>
+    }
+    @if (Model.PageModel.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageModel.PageNumber + 1)"
+           class="btn btn-outline-dark">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
+   
+</body>
+</html>

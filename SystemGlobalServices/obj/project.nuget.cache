@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nzA9EyJPjDtDC+6RcqTqTdtXB0gEDkF28XCO8QSwwUJm934xUeSHtY9N6PgNPJusCYMyimgg9Gr7/drwpjpTsA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Brasd\\source\\repos\\SystemGlobalServices\\SystemGlobalServices\\SystemGlobalServices.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Brasd\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

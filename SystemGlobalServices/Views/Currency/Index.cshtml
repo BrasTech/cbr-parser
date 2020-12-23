@@ -1,0 +1,55 @@
+﻿@using SystemGlobalServices.Models
+@model IndexViewModel
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Курс валют</title>
+</head>
+<body>
+    <h4>Данные о валюте по её идентификатору</h4>
+    <hr />
+    <form method="post" asp-controller="Currency" asp-action="Index">
+        <label>Идентификатор:</label><br />
+        <input type="text" name="id" value="@(Model.FilteredDataById == null ? "" : Model.FilteredDataById.ID)" /><br /><br />
+        <input type="submit" class="btn btn-primary" value="Получить данные" />
+    </form>
+    <br />
+    <div>
+        @{
+            if (Model.FilteredDataById != null)
+            {
+                <table cellpadding="0" cellspacing="0" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NumCode</th>
+                            <th>CharCode</th>
+                            <th>Nominal</th>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Previous</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>@Model.FilteredDataById.ID</td>
+                        <td>@Model.FilteredDataById.NumCode</td>
+                        <td>@Model.FilteredDataById.CharCode</td>
+                        <td>@Model.FilteredDataById.Nominal</td>
+                        <td>@Model.FilteredDataById.Name</td>
+                        <td>@Model.FilteredDataById.Value</td>
+                        <td>@Model.FilteredDataById.Previous</td>
+
+                    </tr>
+                </table>
+            }
+            else
+            {
+                if (!Model.isDefaultSearch)
+                {
+                    <dl>
+                        По указанному запросу нет данных
+                    </dl>
+                }
+            }
+        }
+    </div>
+</body>
