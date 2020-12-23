@@ -19,7 +19,7 @@ namespace SystemGlobalServices
             //...
         }
         /// <summary>
-        /// Список всех возможных ошибок в русской локализации
+        /// Список всех возможных ошибок в английской локализации
         /// </summary>
         public static class Errors
         {
